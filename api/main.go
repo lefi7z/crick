@@ -78,7 +78,7 @@ func main() {
 	handler := applyGlobalMiddleware(app)
 
 	if port := config.Port(); port != "" {
-		// create a socket and listen to it
+		logger.Info("creating a socket and listening to it..")
 		log.Fatal(http.ListenAndServe(
 			fmt.Sprintf(":%s", config.Port()),
 			handler,

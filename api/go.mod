@@ -1,4 +1,4 @@
-module github.com/lefi7z/crick
+module github.com/lefi7z/crick/api
 
 go 1.20
 

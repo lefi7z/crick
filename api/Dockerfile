@@ -1,8 +1,11 @@
-FROM golang:1.8-alpine
+FROM golang:1.20-alpine
 MAINTAINER William Durand <hello@tailordev.fr>
 
 ARG app_env
 ENV APP_ENV $app_env
+
+ARG port=8000
+ENV PORT $port
 
 RUN apk update && \
     apk add git && \
@@ -15,7 +18,7 @@ CMD if [ "${APP_ENV}" == "production" ]; \
     then \
     go build && ./api; \
     else \
-    go get -u github.com/codegangsta/gin && gin --port 8000 run; \
+    go run . ; \
     fi
 
 EXPOSE 8000
