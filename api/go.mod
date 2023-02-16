@@ -14,7 +14,7 @@ require (
 	github.com/rs/cors v0.0.0-20160617231935-a62a804a8a00
 	github.com/satori/go.uuid v1.1.0
 	go.uber.org/zap v1.4.0
-	gopkg.in/square/go-jose.v2 v2.1.1
+	gopkg.in/square/go-jose.v2 v2.6.0
 )
 
 require (
@@ -26,6 +26,7 @@ require (
 	github.com/square/go-jose v1.1.0 // indirect
 	github.com/stretchr/testify v1.8.1 // indirect
 	go.uber.org/atomic v1.2.0 // indirect
-	golang.org/x/net v0.0.0-20170527060238-48359f4f600b // indirect
+	golang.org/x/crypto v0.6.0 // indirect
+	golang.org/x/net v0.6.0 // indirect
 	gopkg.in/square/go-jose.v1 v1.1.2 // indirect
 )
