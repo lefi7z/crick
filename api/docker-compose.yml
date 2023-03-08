@@ -6,9 +6,8 @@ services:
       context: .
       args:
         port: 8000
-        app_env: production
     volumes:
-      - .:/go/src/github.com/TailorDev/crick/api
+      - .:/src
     environment:
       CRICK_DSN: postgres://crick:crickIsChic@db:5432/crick?sslmode=disable
       AUTH0_DOMAIN: https://lefitz.eu.auth0.com/
@@ -26,3 +25,5 @@ services:
       POSTGRES_DB: crick
       POSTGRES_USER: crick
       POSTGRES_PASSWORD: crickIsChic
+    ports:
+      - 5432:5432

@@ -11,14 +11,19 @@ RUN apk update && \
     apk add git && \
     rm -r /var/cache/apk/*
 
-COPY . /go/src/github.com/TailorDev/crick/api
-WORKDIR /go/src/github.com/TailorDev/crick/api
+COPY . /src
+WORKDIR /src
+
+RUN if [ "${APP_ENV}" == "production" ]; \
+	then \
+	go build; \
+	fi
 
 CMD if [ "${APP_ENV}" == "production" ]; \
-    then \
-    go build && ./api; \
-    else \
-    go run . ; \
-    fi
+	then \
+	./api; \
+	else \
+	go run .; \
+	fi
 
 EXPOSE 8000

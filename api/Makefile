@@ -4,9 +4,14 @@ RUN_MIGRATE=$(DOCKER_COMPOSE) -f docker-compose.yml -f docker-compose.tools.yml 
 default: help
 
 dev: ## start the API with Docker
-	@docker-compose -p crick up -d
-	@echo "\033[92mYou can browse the application at: http://api.crick.dev:8000\033[0m"
+	@docker-compose -p crick up --build -d
+	@echo "\033[92mYou can browse the application at: http://localhost:8000\033[0m"
 .PHONY: dev
+
+production:
+	@APP_ENV=production docker-compose -p crick up --build -d
+	@echo "\033[92mYou can browse the application at: http://localhost:8000\033[0m"
+.PHONY: production
 
 logs: ## show the API logs
 	$(DOCKER_COMPOSE) logs -f api
