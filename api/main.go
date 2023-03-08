@@ -73,26 +73,13 @@ func main() {
 	}
 	defer db.Close()
 
+	logger.Info("connected to database, applying middleware..")
 	app := App(models.NewDatabaseRepository(db), logger)
 	handler := applyGlobalMiddleware(app)
 
-	if port := config.Port(); port != "" {
-		logger.Info("creating a socket and listening to it..")
-		log.Fatal(http.ListenAndServe(
-			fmt.Sprintf(":%s", config.Port()),
-			handler,
-		))
-	} else {
-		// try to get a socket from systemd
-		listeners, err := activation.Listeners(true)
-		if err != nil {
-			logger.Fatal("failed to get a socket", zap.Error(err))
-		}
-
-		if len(listeners) != 1 {
-			logger.Fatal("Unexpected number of socket activation fds")
-		}
-
-		log.Fatal(http.Serve(listeners[0], handler))
-	}
+	logger.Info("creating a socket and listening to it..")
+	log.Fatal(http.ListenAndServe(
+		fmt.Sprintf(":%s", config.Port()),
+		handler,
+	))
 }
