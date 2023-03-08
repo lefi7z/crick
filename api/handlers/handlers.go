@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/TailorDev/crick/api/models"
+	"github.com/lefi7z/crick/api/models"
 	"go.uber.org/zap"
 )
 

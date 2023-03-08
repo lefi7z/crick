@@ -30,7 +30,9 @@ import (
 // errors are accumulated until the final call to CompactSerialize/FullSerialize.
 type Builder interface {
 	// Claims encodes claims into JWE/JWS form. Multiple calls will merge claims
-	// into single JSON object.
+	// into single JSON object. If you are passing private claims, make sure to set
+	// struct field tags to specify the name for the JSON key to be used when
+	// serializing.
 	Claims(i interface{}) Builder
 	// Token builds a JSONWebToken from provided data.
 	Token() (*JSONWebToken, error)
@@ -45,7 +47,9 @@ type Builder interface {
 // CompactSerialize/FullSerialize.
 type NestedBuilder interface {
 	// Claims encodes claims into JWE/JWS form. Multiple calls will merge claims
-	// into single JSON object.
+	// into single JSON object. If you are passing private claims, make sure to set
+	// struct field tags to specify the name for the JSON key to be used when
+	// serializing.
 	Claims(i interface{}) NestedBuilder
 	// Token builds a NestedJSONWebToken from provided data.
 	Token() (*NestedJSONWebToken, error)
@@ -139,7 +143,7 @@ func normalize(i interface{}) (map[string]interface{}, error) {
 	}
 
 	d := json.NewDecoder(bytes.NewReader(raw))
-	d.UseNumber()
+	d.SetNumberType(json.UnmarshalJSONNumber)
 
 	if err := d.Decode(&m); err != nil {
 		return nil, err

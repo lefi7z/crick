@@ -9,8 +9,8 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/TailorDev/crick/api/handlers"
-	"github.com/TailorDev/crick/api/models"
+	"github.com/lefi7z/crick/api/handlers"
+	"github.com/lefi7z/crick/api/models"
 	"github.com/julienschmidt/httprouter"
 )
 

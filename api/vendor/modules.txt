@@ -1,30 +1,15 @@
-# github.com/0xAX/notificator v0.0.0-20220220101646-ee9b8921e557
-## explicit; go 1.16
 # github.com/NYTimes/gziphandler v0.0.0-20170403152807-22d4470af89e
 ## explicit
 github.com/NYTimes/gziphandler
-# github.com/TailorDev/crick v0.0.0-20180226104152-00c8e8dd4ff9
-## explicit
-github.com/TailorDev/crick/api/config
-github.com/TailorDev/crick/api/handlers
-github.com/TailorDev/crick/api/middleware
-github.com/TailorDev/crick/api/models
 # github.com/auth0-community/go-auth0 v0.0.0-20170507083526-cd07c3af304f
 ## explicit
 github.com/auth0-community/go-auth0
-# github.com/codegangsta/envy v0.0.0-20141216192214-4b78388c8ce4
-## explicit
-# github.com/codegangsta/gin v0.0.0-20211113050330-71f90109db02
-## explicit
-# github.com/coreos/go-systemd v0.0.0-20161114122254-48702e0da86b
-## explicit
-github.com/coreos/go-systemd/activation
-# github.com/cpuguy83/go-md2man/v2 v2.0.2
-## explicit; go 1.11
 # github.com/go-errors/errors v0.0.0-20161205223245-8fa88b06e597
 ## explicit
 github.com/go-errors/errors
 # github.com/go-sql-driver/mysql v1.7.0
+## explicit; go 1.13
+# github.com/google/go-cmp v0.5.9
 ## explicit; go 1.13
 # github.com/jmoiron/sqlx v0.0.0-20170430194603-d9bd385d68c0
 ## explicit
@@ -40,8 +25,6 @@ github.com/justinas/alice
 ## explicit
 github.com/lib/pq
 github.com/lib/pq/oid
-# github.com/mattn/go-shellwords v1.0.12
-## explicit; go 1.13
 # github.com/mattn/go-sqlite3 v1.14.16
 ## explicit; go 1.16
 # github.com/pkg/errors v0.9.1
@@ -52,8 +35,6 @@ github.com/rs/cors
 # github.com/rs/xhandler v0.0.0-20151224012956-d9d9599b6aaf
 ## explicit
 github.com/rs/xhandler
-# github.com/russross/blackfriday/v2 v2.1.0
-## explicit
 # github.com/satori/go.uuid v1.1.0
 ## explicit
 github.com/satori/go.uuid
@@ -62,8 +43,6 @@ github.com/satori/go.uuid
 github.com/square/go-jose
 # github.com/stretchr/testify v1.8.1
 ## explicit; go 1.13
-# github.com/urfave/cli v1.22.12
-## explicit; go 1.11
 # go.uber.org/atomic v1.2.0
 ## explicit
 go.uber.org/atomic
@@ -76,14 +55,18 @@ go.uber.org/zap/internal/color
 go.uber.org/zap/internal/exit
 go.uber.org/zap/internal/multierror
 go.uber.org/zap/zapcore
-# golang.org/x/net v0.0.0-20170527060238-48359f4f600b
-## explicit
+# golang.org/x/crypto v0.6.0
+## explicit; go 1.17
+golang.org/x/crypto/ed25519
+golang.org/x/crypto/pbkdf2
+# golang.org/x/net v0.6.0
+## explicit; go 1.17
 golang.org/x/net/context
 # gopkg.in/square/go-jose.v1 v1.1.2
 ## explicit
 gopkg.in/square/go-jose.v1/cipher
 gopkg.in/square/go-jose.v1/json
-# gopkg.in/square/go-jose.v2 v2.1.1
+# gopkg.in/square/go-jose.v2 v2.6.0
 ## explicit
 gopkg.in/square/go-jose.v2
 gopkg.in/square/go-jose.v2/cipher

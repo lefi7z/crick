@@ -7,8 +7,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/TailorDev/crick/api/handlers"
-	"github.com/TailorDev/crick/api/models"
+	"github.com/lefi7z/crick/api/handlers"
+	"github.com/lefi7z/crick/api/models"
 	"github.com/julienschmidt/httprouter"
 	"go.uber.org/zap"
 )

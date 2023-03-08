@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/TailorDev/crick/api/models"
+	"github.com/lefi7z/crick/api/models"
 )
 
 type contextKey string

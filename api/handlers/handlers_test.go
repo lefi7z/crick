@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/TailorDev/crick/api/middleware"
-	"github.com/TailorDev/crick/api/models"
+	"github.com/lefi7z/crick/api/middleware"
+	"github.com/lefi7z/crick/api/models"
 	uuid "github.com/satori/go.uuid"
 )
 

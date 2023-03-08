@@ -3,7 +3,7 @@ package models_test
 import (
 	"testing"
 
-	"github.com/TailorDev/crick/api/models"
+	"github.com/lefi7z/crick/api/models"
 )
 
 func TestQueryBuilder(t *testing.T) {

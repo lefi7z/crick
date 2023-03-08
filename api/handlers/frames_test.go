@@ -6,7 +6,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/TailorDev/crick/api/handlers"
+	"github.com/lefi7z/crick/api/handlers"
 	"github.com/julienschmidt/httprouter"
 	uuid "github.com/satori/go.uuid"
 	"go.uber.org/zap"

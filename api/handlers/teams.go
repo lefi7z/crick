@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/TailorDev/crick/api/middleware"
-	"github.com/TailorDev/crick/api/models"
+	"github.com/lefi7z/crick/api/middleware"
+	"github.com/lefi7z/crick/api/models"
 	"github.com/julienschmidt/httprouter"
 	"github.com/lib/pq"
 	uuid "github.com/satori/go.uuid"

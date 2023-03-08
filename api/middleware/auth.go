@@ -3,15 +3,13 @@ package middleware
 import (
 	"context"
 	"database/sql"
-	"encoding/json"
-	"io/ioutil"
 	"net/http"
 	"strings"
 
 	"go.uber.org/zap"
 
-	"github.com/TailorDev/crick/api/config"
-	"github.com/TailorDev/crick/api/models"
+	"github.com/lefi7z/crick/api/models"
+	"github.com/lefi7z/crick/api/config"
 	"github.com/auth0-community/go-auth0"
 	"github.com/julienschmidt/httprouter"
 	"gopkg.in/square/go-jose.v2"
