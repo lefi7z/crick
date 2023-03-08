@@ -34,7 +34,8 @@ test: ## run the test suite
 .PHONY: test
 
 exec-db: ## exec the database container
-	$(DOCKER_COMPOSE) exec db sh
+	@echo "\033[92mconnecting to database.. try 'select * from users;' for a start\033[0m"
+	$(DOCKER_COMPOSE) exec db sh -c "psql -h localhost -p 5432 -U crick crick"
 .PHONY: exec-db
 
 help:
