@@ -85,24 +85,19 @@ func AuthWithAuth0(h httprouter.Handle, repo models.Repository, logger *zap.Logg
 		}
 
 		id := claims["sub"].(string)
+
 		u, err := repo.GetUserByAuth0ID(id)
 		if err != nil {
 			if err == sql.ErrNoRows {
-				profile, err := getUserProfile(c.Domain, r.Header.Get("Authorization"))
-				if err != nil {
-					logger.Warn("cannot retrieve user profile", zap.Error(err))
-					SendError(w, http.StatusUnauthorized, DetailUserProfileRetrievalFailed)
-					return
-				}
-
 				logger.Info(
 					"create new authenticated user",
 					zap.String("auth0_id", id),
-					zap.String("login", profile["nickname"]),
-					zap.String("avatar_url", profile["picture"]),
+					zap.String("login", claims["nickname"].(string)),
+					zap.String("avatar_url", claims["picture"].(string)),
 				)
-
-				u, err = repo.CreateNewUser(profile["sub"], profile["nickname"], profile["picture"])
+				u, err = repo.CreateNewUser(id,
+					claims["nickname"].(string),
+					claims["picture"].(string))
 				if err != nil {
 					logger.Error("cannot create new user", zap.Error(err))
 					SendError(w, http.StatusInternalServerError, DetailUserCreationFailed)
@@ -151,30 +146,3 @@ func AuthWithToken(h httprouter.Handle, repo models.Repository, logger *zap.Logg
 	}
 }
 
-func getUserProfile(domain, authHeader string) (map[string]string, error) {
-	client := &http.Client{}
-	req, err := http.NewRequest("GET", domain+"userinfo", nil)
-	if err != nil {
-		return nil, err
-	}
-
-	req.Header.Add("Authorization", authHeader)
-
-	resp, err := client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-
-	raw, err := ioutil.ReadAll(resp.Body)
-	defer resp.Body.Close()
-	if err != nil {
-		return nil, err
-	}
-
-	var profile map[string]string
-	if err = json.Unmarshal(raw, &profile); err != nil {
-		return nil, err
-	}
-
-	return profile, nil
-}
